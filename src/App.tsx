@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import styled from 'styled-components'
+import { COLORS } from './utils/constants'
+import Card from './components/Card'
 
-function App() {
+// Define our button, but with the use of props.theme this time
+const AppContainer = styled.div`
+  background-color: ${props => props.theme.main};
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+`;
+// We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
+AppContainer.defaultProps = {
+  theme: {
+    main: COLORS.BACKGROUND_LIGHT
+  }
+}
+// Define what props.theme will look like
+const theme = {
+  main: COLORS.BACKGROUND_LIGHT
+}
+
+const App = () => {
+  const [darkModeEnabled, setdarkModeEnabled] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppContainer theme={theme}>
+      <Card isDarkMode={darkModeEnabled}/>
+    </AppContainer>
+
+  )
 }
 
 export default App;
