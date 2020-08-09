@@ -4,7 +4,7 @@ import { SPACING, COLORS } from '../utils/constants'
 import Signature from '../assets/signature.png'
 
 const ContentContainer = styled.div`
-  margin: ${SPACING.LARGE} ${SPACING.MEDIUM};
+  margin: ${SPACING.LARGE} ${SPACING.XLARGE} ${SPACING.LARGE} ${SPACING.MEDIUM};
   display: flex;
   flex-direction: column;
   justify-content: space-between;

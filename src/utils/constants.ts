@@ -7,9 +7,10 @@ const COLORS = {
 }
 
 const SPACING = {
-  SMALL: '30px',
-  MEDIUM: '60px',
-  LARGE: '90px'
+  SMALL: '2rem',
+  MEDIUM: '4rem',
+  LARGE: '6rem',
+  XLARGE: '12rem'
 }
 
 

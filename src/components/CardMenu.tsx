@@ -5,7 +5,8 @@ import SocialContainer from './SocialContainer'
 
 const MenuContainer = styled.div`
   height: 100%;
-  width: 25%;
+  max-width: 12vw;
+  min-width: 12vw;
   background-color: #333;
   display: flex;
   flex-direction: column;
@@ -18,19 +19,36 @@ const MenuList = styled.div`
   flex-direction: column;
 `
 
-const MenuItem = styled.span`
+const MenuItem = styled.div`
   color: white;
   margin-top: ${SPACING.MEDIUM};
   margin-left: ${SPACING.SMALL};
 `
+const menuItems: String[] = ['PROJECTS', 'ABOUT', 'CONTACT'];
 
-const CardMenu = () => {
+type CardMenuProps = {
+  showOverlay(index:number):void
+}
+
+const CardMenu: React.FC<CardMenuProps> = ({showOverlay}) => {
+
+
+  const onClick = (event: React.MouseEvent) => {
+    const element = event.target as HTMLElement;
+    console.log('Click ', menuItems.indexOf(element.innerText));
+    showOverlay(menuItems.indexOf(element.innerText));
+  }
+
   return (
     <MenuContainer>
       <MenuList>
-        <MenuItem> PROJECTS</MenuItem>
-        <MenuItem> ABOUT</MenuItem>
-        <MenuItem> CONTACT</MenuItem>
+        {
+          menuItems.map((menuItem: String, index: number) => {
+            return (<MenuItem key={index} onClick={event => onClick(event)}> {menuItem}</MenuItem>)
+          })
+        }
+        {/* <MenuItem onClick={event => onClick(event)}> ABOUT</MenuItem>
+        <MenuItem onClick={event => onClick(event)}> CONTACT</MenuItem> */}
       </MenuList>
       <SocialContainer />
     </MenuContainer>
