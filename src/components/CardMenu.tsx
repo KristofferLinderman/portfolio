@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { SPACING, COLORS } from '../utils/constants'
+import { SPACING, FONT_SIZE } from '../utils/constants'
 import SocialContainer from './SocialContainer'
 
 const MenuContainer = styled.div`
@@ -21,34 +21,34 @@ const MenuList = styled.div`
 
 const MenuItem = styled.div`
   color: white;
+  cursor: pointer;
+  font-size: ${FONT_SIZE.MENU_ITEM};
   margin-top: ${SPACING.MEDIUM};
   margin-left: ${SPACING.SMALL};
 `
 const menuItems: String[] = ['PROJECTS', 'ABOUT', 'CONTACT'];
 
 type CardMenuProps = {
-  showOverlay(index:number):void
+  setOverlay(index:number):void,
+  closeMenu():void
 }
 
-const CardMenu: React.FC<CardMenuProps> = ({showOverlay}) => {
-
+const CardMenu: React.FC<CardMenuProps> = ({setOverlay, closeMenu}) => {
 
   const onClick = (event: React.MouseEvent) => {
     const element = event.target as HTMLElement;
-    console.log('Click ', menuItems.indexOf(element.innerText));
-    showOverlay(menuItems.indexOf(element.innerText));
+    setOverlay(menuItems.indexOf(element.innerText));
   }
 
   return (
     <MenuContainer>
+      <MenuItem onClick={() => closeMenu()} >X</MenuItem>
       <MenuList>
         {
           menuItems.map((menuItem: String, index: number) => {
             return (<MenuItem key={index} onClick={event => onClick(event)}> {menuItem}</MenuItem>)
           })
         }
-        {/* <MenuItem onClick={event => onClick(event)}> ABOUT</MenuItem>
-        <MenuItem onClick={event => onClick(event)}> CONTACT</MenuItem> */}
       </MenuList>
       <SocialContainer />
     </MenuContainer>

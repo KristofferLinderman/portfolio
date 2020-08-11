@@ -22,7 +22,7 @@ const theme = {
 }
 
 const App = () => {
-  const [darkModeEnabled, setdarkModeEnabled] = useState(false)
+  const [darkModeEnabled, ] = useState(false)
 
   return (
     <AppContainer theme={theme}>

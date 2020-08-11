@@ -1,33 +1,38 @@
 import React from 'react'
 import styled from 'styled-components';
-import { SPACING, COLORS } from '../utils/constants'
+import { SPACING, FONT_SIZE } from '../utils/constants'
 import Signature from '../assets/signature.png'
 
 const ContentContainer = styled.div`
-  margin: ${SPACING.LARGE} ${SPACING.XLARGE} ${SPACING.LARGE} ${SPACING.MEDIUM};
+  padding: ${SPACING.LARGE} ${SPACING.MEDIUM};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `
 
 const CardTitle = styled.h1`
-  font-size: 2rem;
-  line-height: 2rem;
+  font-size: ${FONT_SIZE.LARGE};
+  line-height: ${FONT_SIZE.LARGE};
   text-transform: uppercase;
 `
 const CardSubTitle = styled.h2`
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: ${FONT_SIZE.MEDIUM};
+  line-height: ${FONT_SIZE.LARGE};
+  max-width: 70%;
   text-transform: uppercase;
-  padding-bottom: ${SPACING.LARGE}
+  padding-bottom: ${SPACING.LARGE};
 `
 const SignatureImg = styled.img`
   width: 33%;
 `
 
-const CardContent = () => {
+type CardContentProps = {
+  onClick(event: React.MouseEvent): void
+}
+
+const CardContent: React.FC<CardContentProps> = ({ onClick }) => {
   return (
-    <ContentContainer>
+    <ContentContainer onClick={event => onClick(event)} >
       <CardTitle>Hello, my name is <br />
         Kristoffer Linderman
       </CardTitle>

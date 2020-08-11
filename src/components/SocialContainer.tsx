@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { SPACING, COLORS } from '../utils/constants'
+import { SPACING } from '../utils/constants'
 
 import GithubLogo from '../assets/github.png'
 import LinkedInLogo from '../assets/linkedin.png'

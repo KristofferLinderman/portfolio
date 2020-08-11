@@ -1,33 +1,39 @@
-import React, { ReactNode, useState } from 'react'
-import { SPACING, COLORS } from '../utils/constants'
-import styled, { keyframes } from 'styled-components';
+import React, { useState } from 'react'
+import { COLORS } from '../utils/constants'
+import styled from 'styled-components';
 import CardMenu from './CardMenu';
 import OverlayContent from './OverlayContent';
 
-const OverlayContainer = styled.div<{isExpanded: boolean}>`
+const OverlayContainer = styled.div<{ hideOverlay: boolean }>`
 position: absolute;
 display: flex;
 overflow: hidden;
 right: 10%;
-width: ${props => props.isExpanded ? '74%' : '12%'};
+width: ${props => props.hideOverlay ? '12%' : '74%'};
 height: 75%;
 background: ${COLORS.SECONDARY_LIGHT};
 transition: width 0.5s ease-in-out;
 `
 
-const CardOverlay = () => {
+type CardOverlayProps = {
+  hideOverlay: boolean,
+  showOverlay(): void,
+  closeMenu(): void
+}
 
-  const [isExpanded, setIsExpanded] = useState(false);
+const CardOverlay: React.FC<CardOverlayProps> = ({ hideOverlay, showOverlay, closeMenu }) => {
+  const [overlayToShow, setOverlayToShow] = useState(0);
 
-  const showOverlay = (index: number) => {
-    console.log('Overlay for : ', index);
-    setIsExpanded(!isExpanded);
+  const setOverlay = (index: number) => {
+    console.log('Showing index: ', index);
+    setOverlayToShow(index);
+    showOverlay();
   }
 
   return (
-    <OverlayContainer isExpanded={isExpanded}>
-      <CardMenu showOverlay={(index) => { showOverlay(index) }} />
-      <OverlayContent />
+    <OverlayContainer hideOverlay={hideOverlay}>
+      <CardMenu setOverlay={(index) => { setOverlay(index) }} closeMenu={() => closeMenu()} />
+      <OverlayContent overlayToShow={overlayToShow} />
     </OverlayContainer>
   )
 }

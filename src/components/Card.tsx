@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { COLORS } from '../utils/constants'
 import CardContent from './CardContent';
@@ -30,10 +30,28 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ isDarkMode }) => {
 
+
+  //TODO Move menu open/close to useContext https://www.youtube.com/watch?v=5LrDIWkK_Bc
+  const [hideOverlay, setHideOverlay] = useState(true);
+
+  const cardClicked = () => {
+    console.log('Clicked on the card');
+    if (!hideOverlay)
+      setHideOverlay(!hideOverlay)
+  }
+
+  const showOverlay = () => {
+    setHideOverlay(false);
+  }
+
+  const closeOverlay = () => {
+    setHideOverlay(true);
+  }
+
   return (
-    <CardContainer theme={theme(!!isDarkMode)}>
-      <CardContent />
-      <CardOverlay/>
+    <CardContainer theme={theme(!!isDarkMode)} >
+      <CardContent onClick={() => cardClicked()} />
+      <CardOverlay hideOverlay={hideOverlay} showOverlay={() => showOverlay()} closeMenu={ () => closeOverlay()}/>
     </CardContainer>
   )
 }
