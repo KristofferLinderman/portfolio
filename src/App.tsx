@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
-import styled from 'styled-components'
-import { COLORS } from './utils/constants'
-import Card from './components/Card'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { COLORS } from './utils/constants';
+import Card from './components/Card';
+import { MenuContextType, MenuContextProvider } from './MenuContext';
 
 // Define our button, but with the use of props.theme this time
 const AppContainer = styled.div`
   background-color: ${props => props.theme.main};
   width: 100vw;
   height: 100vh;
-  display:flex;
+  display: flex;
 `;
 // We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
 AppContainer.defaultProps = {
@@ -22,12 +23,19 @@ const theme = {
 }
 
 const App = () => {
-  const [darkModeEnabled, ] = useState(false)
+  const [darkModeEnabled,] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
+  const defaultContextValue: MenuContextType = {
+    isOpen,
+    setIsOpen
+  }
   return (
-    <AppContainer theme={theme}>
-      <Card isDarkMode={darkModeEnabled}/>
-    </AppContainer>
+    <MenuContextProvider value={defaultContextValue}>
+      <AppContainer theme={theme}>
+        <Card isDarkMode={darkModeEnabled} />
+      </AppContainer>
+    </MenuContextProvider>
 
   )
 }

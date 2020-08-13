@@ -1,33 +1,11 @@
-import { useState, createContext } from 'react'
+import { createContext } from 'react'
 
-const defaultMenuValue = false;
-
-type MenuContextType = {
+export type MenuContextType = {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 };
 
-const MenuContext = createContext<MenuContextType | undefined>(undefined);
+const MenuContext = createContext<MenuContextType | null>(null);
 
-type MenuProviderProps = {
-  children: React.ReactNode;
-}
-
-export const MenuProvider = ({ children }: MenuProviderProps) => {
-
-  const [overlayIsOpen, setOverlayIsOpen] = useState(defaultMenuValue);
-
-  const openOverlay = () => {
-    setOverlayIsOpen(true)
-  }
-
-  const closeOverlay = () => {
-    setOverlayIsOpen(false)
-  }
-
-  return (
-    <MenuContext.Provider value= { overlayIsOpen } >
-    { children }
-    < /MenuContext.Provider>
-  )
-}
+export const MenuContextProvider = MenuContext.Provider;
+export const MenuContextConsumer = MenuContext.Consumer;

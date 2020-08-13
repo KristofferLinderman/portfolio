@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { SPACING, FONT_SIZE } from '../utils/constants'
 import SocialContainer from './SocialContainer'
+import { MenuContextConsumer } from '../MenuContext';
 
 const MenuContainer = styled.div`
   height: 100%;
@@ -29,11 +30,11 @@ const MenuItem = styled.div`
 const menuItems: String[] = ['PROJECTS', 'ABOUT', 'CONTACT'];
 
 type CardMenuProps = {
-  setOverlay(index:number):void,
-  closeMenu():void
+  setOverlay(index: number): void,
+  closeMenu(): void
 }
 
-const CardMenu: React.FC<CardMenuProps> = ({setOverlay, closeMenu}) => {
+const CardMenu: React.FC<CardMenuProps> = ({ setOverlay, closeMenu }) => {
 
   const onClick = (event: React.MouseEvent) => {
     const element = event.target as HTMLElement;
@@ -41,17 +42,21 @@ const CardMenu: React.FC<CardMenuProps> = ({setOverlay, closeMenu}) => {
   }
 
   return (
-    <MenuContainer>
-      <MenuItem onClick={() => closeMenu()} >X</MenuItem>
-      <MenuList>
-        {
-          menuItems.map((menuItem: String, index: number) => {
-            return (<MenuItem key={index} onClick={event => onClick(event)}> {menuItem}</MenuItem>)
-          })
-        }
-      </MenuList>
-      <SocialContainer />
-    </MenuContainer>
+    <MenuContextConsumer>
+      {menuContext =>
+        menuContext && (<MenuContainer>
+          <MenuItem onClick={() => menuContext.setIsOpen(false)} >X</MenuItem>
+          <MenuList>
+            {
+              menuItems.map((menuItem: String, index: number) => {
+                return (<MenuItem key={index} onClick={event => onClick(event)}> {menuItem}</MenuItem>)
+              })
+            }
+          </MenuList>
+          <SocialContainer />
+        </MenuContainer>)
+      }
+    </MenuContextConsumer>
   )
 }
 

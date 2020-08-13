@@ -3,6 +3,7 @@ import { COLORS } from '../utils/constants'
 import styled from 'styled-components';
 import CardMenu from './CardMenu';
 import OverlayContent from './OverlayContent';
+import { MenuContextConsumer } from '../MenuContext';
 
 const OverlayContainer = styled.div<{ hideOverlay: boolean }>`
 position: absolute;
@@ -31,10 +32,14 @@ const CardOverlay: React.FC<CardOverlayProps> = ({ hideOverlay, showOverlay, clo
   }
 
   return (
-    <OverlayContainer hideOverlay={hideOverlay}>
-      <CardMenu setOverlay={(index) => { setOverlay(index) }} closeMenu={() => closeMenu()} />
-      <OverlayContent overlayToShow={overlayToShow} />
-    </OverlayContainer>
+    <MenuContextConsumer>
+      {menuContext =>
+        menuContext && (<OverlayContainer hideOverlay={hideOverlay}>
+          <CardMenu setOverlay={(index) => { setOverlay(index) }} closeMenu={() => closeMenu()} />
+          <OverlayContent overlayToShow={overlayToShow} />
+        </OverlayContainer>)
+      }
+    </MenuContextConsumer>
   )
 }
 
