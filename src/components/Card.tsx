@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({ isDarkMode }) => {
 
 
   //TODO Move menu open/close to useContext https://www.youtube.com/watch?v=5LrDIWkK_Bc
-  const [hideOverlay, setHideOverlay] = useState(true);
+  const [hideOverlay, setHideOverlay] = useState(false);
 
   const cardClicked = () => {
     console.log('Clicked on the card');

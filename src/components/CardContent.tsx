@@ -37,7 +37,7 @@ const CardContent: React.FC<CardContentProps> = ({ onClick }) => {
       {menuContext =>
         //Check for null as context has type <MenuContextType | null>
         menuContext && (
-          <ContentContainer onClick={() => menuContext.setIsOpen(false)} >
+          <ContentContainer onClick={(event) => onClick(event)} >
             <CardTitle>Hello, my name is <br />
               Kristoffer Linderman
             </CardTitle>

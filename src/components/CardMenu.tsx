@@ -44,8 +44,10 @@ const CardMenu: React.FC<CardMenuProps> = ({ setOverlay, closeMenu }) => {
   return (
     <MenuContextConsumer>
       {menuContext =>
-        menuContext && (<MenuContainer>
-          <MenuItem onClick={() => menuContext.setIsOpen(false)} >X</MenuItem>
+        {console.log(menuContext);
+      
+        return (menuContext && (<MenuContainer>
+          <MenuItem onClick={() => closeMenu()} >X</MenuItem>
           <MenuList>
             {
               menuItems.map((menuItem: String, index: number) => {
@@ -54,8 +56,8 @@ const CardMenu: React.FC<CardMenuProps> = ({ setOverlay, closeMenu }) => {
             }
           </MenuList>
           <SocialContainer />
-        </MenuContainer>)
-      }
+        </MenuContainer>))
+      }}
     </MenuContextConsumer>
   )
 }

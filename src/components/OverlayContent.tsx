@@ -8,7 +8,6 @@ const ContentContainer = styled.div`
   width: 100%;
   color: white;
   text-align: center;
-  font-size: 6rem;
 `
 
 type OverlayContentProps = {
