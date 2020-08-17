@@ -1,32 +1,8 @@
 import React from 'react'
-import styled from 'styled-components';
-import { SPACING, FONT_SIZE } from '../utils/constants'
 import SocialContainer from './SocialContainer'
 import { MenuContextConsumer } from '../MenuContext';
+import { MenuItem, MenuList, MenuContainer } from './CardMenu.style'
 
-const MenuContainer = styled.div`
-  height: 100%;
-  max-width: 12vw;
-  min-width: 12vw;
-  background-color: #333;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`
-
-const MenuList = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`
-
-const MenuItem = styled.div`
-  color: white;
-  cursor: pointer;
-  font-size: ${FONT_SIZE.MENU_ITEM};
-  margin-top: ${SPACING.MEDIUM};
-  margin-left: ${SPACING.SMALL};
-`
 const menuItems: String[] = ['PROJECTS', 'ABOUT', 'CONTACT'];
 
 type CardMenuProps = {
@@ -43,9 +19,9 @@ const CardMenu: React.FC<CardMenuProps> = ({ setOverlay, closeMenu }) => {
 
   return (
     <MenuContextConsumer>
-      {menuContext =>
-        {console.log(menuContext);
-      
+      {menuContext => {
+        console.log(menuContext);
+
         return (menuContext && (<MenuContainer>
           <MenuItem onClick={() => closeMenu()} >X</MenuItem>
           <MenuList>

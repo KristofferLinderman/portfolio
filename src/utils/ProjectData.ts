@@ -1,27 +1,30 @@
-export interface ProjectDataType {
-  name:string,
+export type ProjectDataType = {
+  name: string,
   description: string,
   img: string,
   github: string,
-  viewUrl: string|null
+  viewUrl: string | null
 }
 
 export const ProjectData: ProjectDataType[] = [
-  {  name:'Project 1',
+  {
+    name: 'ToDo List',
     description: 'Description for Project 1',
-    img: 'string',
+    img: 'todo-list.png',
     github: 'string',
     viewUrl: 'string'
   },
-  {  name:'Project 2',
+  {
+    name: 'Profile Page',
     description: 'Description for Project 2',
-    img: 'string',
+    img: 'profile-page.png',
     github: 'string',
     viewUrl: 'string'
   },
-  {  name:'Project 3',
-    description: 'Description for Project 3',
-    img: 'string',
+  {
+    name: 'Landing Page',
+    description: 'Description for Landing Page',
+    img: 'laning-page.jpg',
     github: 'string',
     viewUrl: 'string'
   },

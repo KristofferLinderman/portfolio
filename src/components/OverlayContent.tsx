@@ -29,7 +29,7 @@ const OverlayContent: React.FC<OverlayContentProps> = ({ overlayToShow }) => {
         return <Projects />
     }
   }
-
+  
   return (
     <ContentContainer>
       {getOverlay()}

@@ -11,6 +11,8 @@ const AppContainer = styled.div`
   height: 100vh;
   display: flex;
 `;
+
+// TODO Use theme correctly https://styled-components.com/docs/advanced
 // We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
 AppContainer.defaultProps = {
   theme: {
@@ -26,12 +28,12 @@ const App = () => {
   const [darkModeEnabled,] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
 
-  const defaultContextValue: MenuContextType = {
-    isOpen,
-    setIsOpen
-  }
+  // const defaultContextValue: MenuContextType = {
+  //   isOpen,
+  //   setIsOpen
+  // }
   return (
-    <MenuContextProvider value={defaultContextValue}>
+    <MenuContextProvider value={{isOpen, setIsOpen}}>
       <AppContainer theme={theme}>
         <Card isDarkMode={darkModeEnabled} />
       </AppContainer>
