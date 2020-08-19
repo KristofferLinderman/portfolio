@@ -7,29 +7,29 @@ export type ProjectDataType = {
   description: string,
   img: string,
   github: string,
-  viewUrl: string | null
+  url: string | null
 }
 
 export const ProjectData: ProjectDataType[] = [
   {
     name: 'ToDo List',
-    description: 'Description for Project 1',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
     img: landingPageImg,
     github: 'string',
-    viewUrl: 'string'
+    url: 'string'
   },
   {
     name: 'Profile Page',
-    description: 'Description for Project 2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     img: profilePageImg,
     github: 'string',
-    viewUrl: 'string'
+    url: 'string'
   },
   {
     name: 'Landing Page',
-    description: 'Description for Landing Page',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam.',
     img: todoListImg,
     github: 'string',
-    viewUrl: 'string'
+    url: 'string'
   },
 ]

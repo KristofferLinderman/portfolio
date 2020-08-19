@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 import { ProjectDataType } from '../../utils/ProjectData';
-import { ProjectCardContainer, ProjectInfoContainer, ProjectImg } from './Projects.style'
+import { ProjectCardContainer, ProjectInfoContainer, ProjectImg, ProjectTitle } from './Projects.style';
 
-type Project = {
+type ProjectCardProps = {
   project: ProjectDataType
 }
 
-const ProjectCard: React.FC<Project> = ({ project }: Project): JSX.Element => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }: ProjectCardProps): JSX.Element => {
   const { name, description, img } = project;
 
   return (
     <ProjectCardContainer >
       <ProjectInfoContainer>
-        <p>{name}</p>
+        <ProjectTitle>{name}</ProjectTitle>
         <p>{description}</p>
       </ProjectInfoContainer>
       <ProjectImg src={img} alt="Project image" />

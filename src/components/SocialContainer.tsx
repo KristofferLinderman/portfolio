@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import { SPACING } from '../utils/constants'
 
-import GithubLogo from '../assets/github.png'
-import LinkedInLogo from '../assets/linkedin.png'
+import GithubLogo from '../assets/github.svg'
+import LinkedInLogo from '../assets/linkedin.svg'
 
 const LogoContainer = styled.div`
   display: flex;
