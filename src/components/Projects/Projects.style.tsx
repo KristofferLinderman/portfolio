@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FONT_SIZE } from '../../utils/constants'
+import { FONT_SIZE, COLORS, SPACING } from '../../utils/constants'
 
 export const ProjectCardContainer = styled.div`
   width: 30%;
@@ -14,20 +14,29 @@ export const ProjectCardContainer = styled.div`
 
   &:hover {
     >div {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
+      opacity: 1;
     }
   }
 `;
 
 export const ProjectInfoContainer = styled.div`
   z-index: 99;
-  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  /* opacity: 1; */
   background-color: rgba(0,0,0,0.7);
+  transition: opacity 0.3s ease-in-out;
+
+  & svg{
+    fill: ${COLORS.SECONDARY_LIGHT};
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 export const ProjectImg = styled.img`
@@ -46,4 +55,12 @@ export const ProjectsContainer = styled.div`
 
 export const ProjectTitle = styled.h1`
   font-size: ${FONT_SIZE.LARGE};
+  margin: ${SPACING.MEDIUM} 0 ${SPACING.SMALL} 0;
+`;
+
+export const LinkContainer = styled.div`
+  display: flex;
+  padding: 0 20%;
+  justify-content: space-evenly;
+  margin-bottom: ${SPACING.SMALL}
 `;
