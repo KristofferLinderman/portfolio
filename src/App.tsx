@@ -26,14 +26,9 @@ const theme = {
 
 const App = () => {
   const [darkModeEnabled,] = useState(false)
-  const [isOpen, setIsOpen] = useState(false);
 
-  // const defaultContextValue: MenuContextType = {
-  //   isOpen,
-  //   setIsOpen
-  // }
   return (
-    <MenuContextProvider value={{isOpen, setIsOpen}}>
+    <MenuContextProvider>
       <AppContainer theme={theme}>
         <Card isDarkMode={darkModeEnabled} />
       </AppContainer>
