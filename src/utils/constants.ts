@@ -9,6 +9,7 @@ const COLORS = {
 }
 
 const SPACING = {
+  XSMALL: '1.5rem',
   SMALL: '2rem',
   MEDIUM: '4rem',
   LARGE: '6rem',

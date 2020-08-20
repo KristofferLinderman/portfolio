@@ -19,6 +19,12 @@ export const ProjectCardContainer = styled.div`
   }
 `;
 
+export const ProjectImg = styled.img`
+  height: 100%;
+  z-index: 1;
+  position: relative;
+`;
+
 export const ProjectInfoContainer = styled.div`
   z-index: 99;
   position: absolute;
@@ -27,8 +33,7 @@ export const ProjectInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  opacity: 0;
-  /* opacity: 1; */
+  opacity: 1;
   background-color: rgba(0,0,0,0.7);
   transition: opacity 0.3s ease-in-out;
 
@@ -36,13 +41,13 @@ export const ProjectInfoContainer = styled.div`
     fill: ${COLORS.SECONDARY_LIGHT};
     width: 50px;
     height: 50px;
-  }
-`;
+    transition: all 0.3s ease-in-out;
 
-export const ProjectImg = styled.img`
-  height: 100%;
-  z-index: 1;
-  position: relative;
+    &:hover {
+      fill: ${COLORS.CARD_LIGHT};
+      transform: scale(1.1);
+    }
+  }
 `;
 
 export const ProjectsContainer = styled.div`
@@ -55,12 +60,17 @@ export const ProjectsContainer = styled.div`
 
 export const ProjectTitle = styled.h1`
   font-size: ${FONT_SIZE.LARGE};
-  margin: ${SPACING.MEDIUM} 0 ${SPACING.SMALL} 0;
+  margin-top: ${SPACING.SMALL};
+`;
+
+export const ProjectDescription = styled.p`
+  font-size: ${FONT_SIZE.SMALL};
+  margin: 0 ${SPACING.XSMALL};
 `;
 
 export const LinkContainer = styled.div`
   display: flex;
   padding: 0 20%;
   justify-content: space-evenly;
-  margin-bottom: ${SPACING.SMALL}
+  margin-bottom: ${SPACING.XSMALL}
 `;
