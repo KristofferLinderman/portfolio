@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import SocialContainer from './SocialContainer'
 import { MenuContext } from '../MenuContext';
-import { MenuItem, MenuList, MenuContainer } from './CardMenu.style'
+import { MenuItem, MenuList, MenuContainer, MenuCloseBtn, LogoImg } from './CardMenu.style'
+import CloseIcon from '../assets/close-icon.svg';
 
 const menuItems: String[] = ['PROJECTS', 'ABOUT', 'CONTACT'];
 
@@ -27,7 +28,7 @@ const CardMenu: React.FC<CardMenuProps> = ({ setOverlay }) => {
 
   return (
     <MenuContainer>
-      {(menuContext?.isOpen && <MenuItem onClick={() => exitClicked()} >X</MenuItem>)}
+      {(menuContext?.isOpen && <MenuCloseBtn onClick={() => exitClicked()} ><LogoImg src={CloseIcon} alt="Close menu button"/></MenuCloseBtn>)}
       <MenuList>
         {
           menuItems.map((menuItem: String, index: number) => {

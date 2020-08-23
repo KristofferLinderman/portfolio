@@ -15,6 +15,7 @@ const LogoImg = styled.img`
   filter: brightness(0.1) invert(0.9);
   width: 35%;
   margin: auto;
+  user-select: none;
 `
 
 const SocialContainer = () => {

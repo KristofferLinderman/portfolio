@@ -4,11 +4,12 @@ import { SPACING, FONT_SIZE } from '../utils/constants'
 import Signature from '../assets/signature.png'
 import { MenuContext } from '../MenuContext';
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.div<{ isOverlayOpen: boolean | undefined }>`
   padding: ${SPACING.LARGE} ${SPACING.MEDIUM};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: ${props => props.isOverlayOpen ? 'pointer' : ''};
 `
 
 const CardTitle = styled.h1`
@@ -31,7 +32,7 @@ const CardContent: React.FC = () => {
   const menuContext = useContext(MenuContext);
 
   return (
-    <ContentContainer onClick={() => menuContext?.setIsOpen(false)} >
+    <ContentContainer onClick={() => menuContext?.setIsOpen(false)} isOverlayOpen={menuContext?.isOpen}>
       <CardTitle>Hello, my name is <br />
               Kristoffer Linderman
             </CardTitle>
