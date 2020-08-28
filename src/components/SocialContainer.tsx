@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import { SPACING } from '../utils/constants'
 
-import GithubLogo from '../assets/github.svg'
-import LinkedInLogo from '../assets/linkedin.svg'
+import GithubLogo from '../assets/icons/github.svg'
+import LinkedInLogo from '../assets/icons/linkedin.svg'
 
 const LogoContainer = styled.div`
   display: flex;
@@ -13,8 +13,7 @@ const LogoContainer = styled.div`
 
 const LogoImg = styled.img`
   filter: brightness(0.1) invert(0.9);
-  width: 35%;
-  margin: auto;
+  width: 25%;
   user-select: none;
 `
 

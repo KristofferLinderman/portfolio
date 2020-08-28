@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { COLORS } from './utils/constants';
 import Card from './components/Card';
-import { MenuContextType, MenuContextProvider } from './MenuContext';
+import { MenuContextProvider } from './MenuContext';
+import {GlobalStyles} from './components/globalStyles';
 
 // Define our button, but with the use of props.theme this time
 const AppContainer = styled.div`
@@ -29,6 +30,7 @@ const App = () => {
 
   return (
     <MenuContextProvider>
+      <GlobalStyles/>
       <AppContainer theme={theme}>
         <Card isDarkMode={darkModeEnabled} />
       </AppContainer>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Signature from '../assets/signature.png'
+import Signature from '../assets/images/signature.png'
 import { MenuContext } from '../MenuContext';
 import { ContentContainer, CardTitle, CardSubTitle, SignatureImg } from './CardContent.style'
 

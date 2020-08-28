@@ -9,9 +9,12 @@ export const MenuItem = styled.p`
   user-select: none;
 `
 
-export const MenuCloseBtn = styled(MenuItem)`
-    position: absolute;
-    margin-top: ${SPACING.XSMALL};
+export const MenuCloseBtn = styled(MenuItem) <{ toShow: boolean | undefined }>`
+  position: absolute;
+  opacity: ${props => props.toShow ? '1' : '0'};
+  margin-top: ${SPACING.XSMALL};
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.5s;
 `
 
 export const MenuContainer = styled.div`
@@ -34,6 +37,6 @@ export const MenuList = styled.div`
 `
 
 export const LogoImg = styled.img`
-filter: brightness(0.1) invert(0.9);
-margin: auto;
+  filter: brightness(0.1) invert(0.9);
+  margin: auto;
 `

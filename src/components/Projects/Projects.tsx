@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProjectData } from '../../utils/ProjectData';
+import { ProjectData } from '../../contentData/ProjectData';
 import ProductCard from './ProjectCard';
 import { ProjectsContainer } from './Projects.style'
 

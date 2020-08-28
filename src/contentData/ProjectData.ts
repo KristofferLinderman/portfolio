@@ -1,6 +1,6 @@
-import landingPageImg from '../assets/landing-page.jpg';
-import profilePageImg from '../assets/profile-page.png';
-import todoListImg from '../assets/todo-list.png';
+import landingPageImg from '../assets/images/landing-page.jpg';
+import profilePageImg from '../assets/images/profile-page.png';
+import todoListImg from '../assets/images/todo-list.png';
 
 export type ProjectDataType = {
   name: string,

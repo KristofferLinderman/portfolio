@@ -33,7 +33,7 @@ export const ProjectInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  opacity: 1;
+  opacity: 0;
   background-color: rgba(0,0,0,0.7);
   transition: opacity 0.3s ease-in-out;
 

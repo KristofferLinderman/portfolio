@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components';
 import { COLORS } from '../utils/constants'
 import Projects from './Projects/Projects'
+import About from './About/About';
+import Contact from './Contact/Contact';
+import { OverlayContext } from '../OverlayContext';
 
 const ContentContainer = styled.div`
   background-color: ${COLORS.OVERLAY_LIGHT};
@@ -10,26 +13,24 @@ const ContentContainer = styled.div`
   text-align: center;
 `
 
-type OverlayContentProps = {
-  overlayToShow: number
-}
+const OverlayContent: React.FC= () => {
 
-const OverlayContent: React.FC<OverlayContentProps> = ({ overlayToShow }) => {
-
-  console.log('Showing overlay: #', overlayToShow);
+  const overlayContext = useContext(OverlayContext);
 
   const getOverlay = () => {
-    switch (overlayToShow) {
+    console.log('Overlay: ', overlayContext?.activeOverlay);
+    
+    switch (overlayContext?.activeOverlay) {
       case 1:
-        return 'About'
+        return <About />
       case 2:
-        return 'Contact'
+        return <Contact />
 
       default:
         return <Projects />
     }
   }
-  
+
   return (
     <ContentContainer>
       {getOverlay()}

@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProjectDataType } from '../../utils/ProjectData';
+import { ProjectDataType } from '../../contentData/ProjectData';
 import { ProjectCardContainer, ProjectInfoContainer, ProjectImg, ProjectTitle, LinkContainer, ProjectDescription } from './Projects.style';
-import { ReactComponent as GithubLogo } from '../../assets/github.svg'
-import { ReactComponent as WebsiteLogo } from '../../assets/web.svg'
+import { ReactComponent as GithubLogo } from '../../assets/icons/github.svg'
+import { ReactComponent as WebsiteLogo } from '../../assets/icons/web.svg'
 
 type ProjectCardProps = {
   project: ProjectDataType
