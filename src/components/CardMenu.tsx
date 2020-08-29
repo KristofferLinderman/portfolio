@@ -23,13 +23,19 @@ const CardMenu: React.FC = () => {
     menuContext?.setIsOpen(false);
   }
 
+  const getActive = (index: number) => {
+    if (menuContext?.isOpen)
+      return index === overlayContext?.activeOverlay;
+    return false;
+  }
+
   return (
     <MenuContainer>
-      <MenuCloseBtn onClick={() => exitClicked()} toShow={menuContext?.isOpen}><LogoImg src={CloseIcon} alt="Close menu button" /></MenuCloseBtn>
+      <MenuCloseBtn isActive={false} onClick={() => exitClicked()} toShow={menuContext?.isOpen}><LogoImg src={CloseIcon} alt="Close menu button" /></MenuCloseBtn>
       <MenuList>
         {
           menuItems.map((menuItem: String, index: number) => {
-            return (<MenuItem key={index} onClick={event => onClick(event)}> {menuItem}</MenuItem>)
+            return (<MenuItem key={index} onClick={event => onClick(event)} isActive={getActive(index)}> {menuItem}</MenuItem>)
           })
         }
       </MenuList>

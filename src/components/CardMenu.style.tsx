@@ -1,12 +1,25 @@
 import { SPACING, FONT_SIZE } from '../utils/constants'
 import styled from 'styled-components';
 
-export const MenuItem = styled.p`
+export const MenuItem = styled.p<{ isActive: boolean }>`
   color: white;
   cursor: pointer;
   font-size: ${FONT_SIZE.MENU_ITEM};
   margin-left: ${SPACING.SMALL};
   user-select: none;
+  width: fit-content;
+  position: relative;
+  &::after{
+    position: absolute;
+    content: '';
+    height: 3px;
+    bottom: -3px;
+    right: 0; 
+    left: 0;
+    width: ${props => props.isActive ? '100%' : '0'};
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+  }
 `
 
 export const MenuCloseBtn = styled(MenuItem) <{ toShow: boolean | undefined }>`
