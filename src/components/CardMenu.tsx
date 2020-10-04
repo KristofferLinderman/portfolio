@@ -14,7 +14,6 @@ const CardMenu: React.FC = () => {
 
   const onClick = (event: React.MouseEvent) => {
     const element = event.target as HTMLElement;
-    console.log('Setting: ', menuItems.indexOf(element.innerText));
     overlayContext?.setActiveOverlay(menuItems.indexOf(element.innerText));
     menuContext?.setIsOpen(true);
   }

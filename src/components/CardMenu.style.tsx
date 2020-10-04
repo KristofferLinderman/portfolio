@@ -1,5 +1,6 @@
 import { SPACING, FONT_SIZE } from '../utils/constants'
 import styled from 'styled-components';
+import { device } from '../utils/MediaQueries'
 
 export const MenuItem = styled.p<{ isActive: boolean }>`
   color: white;
@@ -32,13 +33,17 @@ export const MenuCloseBtn = styled(MenuItem) <{ toShow: boolean | undefined }>`
 
 export const MenuContainer = styled.div`
   height: 100%;
-  max-width: 12vw;
-  min-width: 12vw;
+  width: 100%;
   background-color: #333;
   margin: auto 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media ${device.laptop}{
+    max-width: 12vw;
+    min-width: 12vw;
+  }
 `
 
 export const MenuList = styled.div`
